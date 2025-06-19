@@ -1,0 +1,2489 @@
+/* RESET Básico: Zera margens, preenchimentos, bordas e garante herança de fontes para a maioria dos elementos. */
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td,
+/* Elementos HTML5 sem necessidade de 'display: block;' extra na maioria dos navegadores modernos */
+article, aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%; /* Mantenha se quiser que font-size base seja herdado e ajustado via rem/em */
+    font: inherit;
+    vertical-align: baseline;
+}
+/* Garante que elementos HTML5 tenham comportamento de bloco (para navegadores antigos) */
+/* Embora menos crítico, manter não prejudica e garante compatibilidade máxima */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+/* Estilos para o corpo */
+body {
+    line-height: 1;
+    /* -webkit-text-size-adjust: none; -- Removido, menos crítico com viewport responsiva */
+}
+/* Reset para listas e citações */
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+    /* blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } -- Removido, redundante com 'quotes: none;' */
+}
+/* Reset para tabelas */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* Reset para elementos de formulário */
+input, select, textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+/* Reset para foco interno de inputs no Firefox */
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+/* Estilo para a tag <mark> */
+mark {
+    background-color: transparent;
+    color: inherit;
+}
+
+/* Basic */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: #fff;
+}
+
+    /* Otimizado: Removidos prefixos de navegador para animation e transition */
+    body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+body, input, select, textarea {
+    color: #888;
+    font-family: 'Inter','Lato', 'Roboto', 'Poppins', sans-serif;
+    font-size: 16pt; /* Considere usar 'rem' para maior escalabilidade */
+    font-weight: 400;
+    line-height: 1.75em;
+}
+
+a {
+    /* Otimizado: Removidos prefixos de navegador para transition */
+    transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border-bottom: solid 1px #e4e4e4;
+    color: inherit;
+    text-decoration: none;
+}
+
+    a:hover {
+        border-bottom-color: transparent;
+        color: #4acaa8 !important;
+    }
+
+strong, b {
+    color: #777;
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+p {
+    margin: 0 0 2.25em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #777;
+    font-weight: 700;
+    line-height: 1em;
+    margin: 0 0 0.5625em 0;
+}
+
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        border: 0;
+        color: inherit;
+        text-decoration: none;
+    }
+
+h2 {
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+h3 {
+    font-size: 1.75em;
+    line-height: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+    line-height: 1.5em;
+}
+
+h5 {
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+h6 {
+    font-size: 0.7em;
+    line-height: 1.5em;
+}
+
+sub {
+    font-size: 0.8em;
+    position: relative;
+    top: 0.5em;
+}
+
+sup {
+    font-size: 0.8em;
+    position: relative;
+    top: -0.5em;
+}
+
+hr {
+    border: 0;
+    border-bottom: solid 2px #f4f4f4;
+    margin: 2.25em 0;
+}
+
+    hr.major {
+        margin: 3.375em 0;
+    }
+
+blockquote {
+    border-left: solid 8px #e4e4e4;
+    font-style: italic;
+    margin: 0 0 2.25em 0;
+    padding: 0.5em 0 0.5em 2em;
+}
+
+code {
+    background: #555;
+    border-radius: 5px;
+    color: #fff;
+    font-family: "Source Code Pro", monospace;
+    font-size: 0.9em;
+    margin: 0 0.25em;
+    padding: 0.25em 0.65em;
+}
+
+pre {
+    font-family: "Source Code Pro", monospace;
+    font-size: 0.9em;
+    margin: 0 0 2.25em 0;
+}
+
+    pre code {
+        -webkit-overflow-scrolling: touch; /* Ainda útil para iOS nativo */
+        display: block;
+        line-height: 1.5em;
+        overflow-x: auto;
+        padding: 1em 1.5em;
+    }
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+/*Corrigir altura do scroll*/
+/*section {
+	scroll-margin-top: 100px; *//* ou a altura real do seu titleBar */
+  }
+  
+
+/*
+ * Sistema de Grid (Grade) Responsivo
+ *
+ * Este conjunto de regras CSS é o coração do layout responsivo do seu template.
+ * Ele permite organizar o conteúdo em uma estrutura de linhas e colunas,
+ * adaptando-se a diferentes tamanhos de tela (desktop, tablet, celular)
+ * e controlando o espaçamento entre os elementos.
+*/
+
+/* -------------------------------------------------------------------------- */
+/* 1. Regras Base para a Linha (Contêiner Flexível) */
+/* Define o comportamento fundamental das linhas do seu grid. */
+/* -------------------------------------------------------------------------- */
+.row {
+    display: flex;       /* Transforma o .row em um contêiner flexível (Flexbox), permitindo que seus filhos (colunas) se organizem lado a lado. */
+    flex-wrap: wrap;     /* Essencial para responsividade: faz com que as colunas que excedem a largura da linha "quebrem" para a próxima linha. */
+    box-sizing: border-box; /* Garante que padding e borda sejam incluídos na largura e altura total do elemento, simplificando cálculos de layout. */
+    align-items: stretch; /* Faz com que todos os itens (colunas) dentro desta linha se estiquem para ter a mesma altura. */
+    margin-top: 0;       /* Define a margem superior padrão da linha como zero. */
+    margin-left: -2em;   /* Aplica uma margem negativa à esquerda para compensar o padding das colunas e criar o "gutter" (espaço entre elas). */
+}
+
+/* Aplica a propriedade box-sizing a todos os filhos diretos de .row (as colunas). */
+.row > * {
+    box-sizing: border-box; /* Garante que padding e borda das colunas também sejam incluídos em suas larguras. */
+    padding: 0 0 0 2em;   /* Adiciona padding à esquerda de cada coluna, criando o espaçamento interno (gutter). */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. Modificadores de Gutter (Espaçamento entre Colunas e Linhas) */
+/* Permitem controlar o tamanho dos espaços entre as colunas e, opcionalmente, entre as linhas. */
+/* -------------------------------------------------------------------------- */
+
+/* Remove todos os gutters (espaçamentos). */
+.row.gtr-0 {
+    margin-top: 0;
+    margin-left: 0em;
+}
+.row.gtr-0 > * {
+    padding: 0 0 0 0em;
+}
+
+/* Quando 'gtr-uniform' é usado com 'gtr-0', também remove o espaçamento vertical. */
+.row.gtr-0.gtr-uniform {
+    margin-top: 0em;
+}
+.row.gtr-0.gtr-uniform > * {
+    padding-top: 0em;
+}
+
+/* Define gutters de 0.5em (25% do tamanho base do gutter de 2em). */
+.row.gtr-25 { /*  */
+    margin-top: 0; /*  */
+    margin-left: -0.5em; /*  */
+}
+.row.gtr-25 > * { /*  */
+    padding: 0 0 0 0.5em; /*  */
+}
+/* Espaçamento vertical uniforme para gutters de 0.5em. */
+.row.gtr-25.gtr-uniform { /*  */
+    margin-top: -0.5em; /*  */
+}
+.row.gtr-25.gtr-uniform > * { /*  */
+    padding-top: 0.5em; /*  */
+}
+
+/* Define gutters de 1em (50% do tamanho base do gutter de 2em). */
+.row.gtr-50 { /*  */
+    margin-top: 0; /*  */
+    margin-left: -1em; /*  */
+}
+.row.gtr-50 > * { /*  */
+    padding: 0 0 0 1em; /*  */
+}
+/* Espaçamento vertical uniforme para gutters de 1em. */
+.row.gtr-50.gtr-uniform { /*  */
+    margin-top: -1em; /*  */
+}
+.row.gtr-50.gtr-uniform > * { /*  */
+    padding-top: 1em; /*  */
+}
+
+/* As seguintes regras '.row' sem 'gtr-X' repetem os valores padrão de 2em,
+   mas são posicionadas aqui para talvez sobrescrever configurações anteriores.
+   É uma forma de o template reafirmar seu gutter padrão. */
+.row { /*  */
+    margin-top: 0; /*  */
+    margin-left: -2em; /*  */
+}
+.row > * { /*  */
+    padding: 0 0 0 2em; /*  */
+}
+.row.gtr-uniform { /*  */
+    margin-top: -2em; /*  */
+}
+.row.gtr-uniform > * { /*  */
+    padding-top: 2em; /*  */
+}
+
+/* Define gutters de 3em (150% do tamanho base do gutter de 2em). */
+.row.gtr-150 { /*  */
+    margin-top: 0; /*  */
+    margin-left: -3em; /*  */
+}
+.row.gtr-150 > * { /*  */
+    padding: 0 0 0 3em; /*  */
+}
+.row.gtr-150.gtr-uniform { /*  */
+    margin-top: -3em; /*  */
+}
+.row.gtr-150.gtr-uniform > * { /*  */
+    padding-top: 3em; /*  */
+}
+
+/* Define gutters de 4em (200% do tamanho base do gutter de 2em). */
+.row.gtr-200 { /*  */
+    margin-top: 0; /*  */
+    margin-left: -4em; /*  */
+}
+.row.gtr-200 > * { /*  */
+    padding: 0 0 0 4em; /*  */
+}
+.row.gtr-200.gtr-uniform { /*  */
+    margin-top: -4em; /*  */
+}
+.row.gtr-200.gtr-uniform > * { /*  */
+    padding-top: 4em; /*  */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. Regras para Elementos Finais em Colunas Uniformes */
+/* Garante que o último elemento em uma coluna específica não tenha margem inferior extra. */
+/* -------------------------------------------------------------------------- */
+.row.gtr-uniform > * > :last-child { /*  */
+    margin-bottom: 0; /*  */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. Classes de Alinhamento Horizontal (justify-content) */
+/* Controlam como as colunas são distribuídas horizontalmente dentro da linha. */
+/* -------------------------------------------------------------------------- */
+.row.aln-left { /*  */
+    justify-content: flex-start; /*  */ /* Alinha as colunas à esquerda. */
+}
+.row.aln-center { /*  */
+    justify-content: center; /*  */ /* Centraliza as colunas horizontalmente. */
+}
+.row.aln-right { /*  */
+    justify-content: flex-end; /*  */ /* Alinha as colunas à direita. */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. Classes de Alinhamento Vertical (align-items) */
+/* Controlam como as colunas são alinhadas verticalmente dentro da linha. */
+/* -------------------------------------------------------------------------- */
+.row.aln-top { /*  */
+    align-items: flex-start; /*  */ /* Alinha as colunas ao topo da linha. */
+}
+.row.aln-middle { /*  */
+    align-items: center; /*  */ /* Centraliza as colunas verticalmente na linha. */
+}
+.row.aln-bottom { /*  */
+    align-items: flex-end; /*  */ /* Alinha as colunas à base da linha. */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 6. Classes de Ordem (Reorganização de Elementos) */
+/* Permite mudar a ordem visual de um elemento dentro do Flexbox. */
+/* -------------------------------------------------------------------------- */
+.row > .imp { /*  */
+    order: -1; /*  */ /* Move o elemento com a classe 'imp' para o início da linha. */
+}
+
+/* -------------------------------------------------------------------------- */
+/* 7. Classes de Coluna Padrão (para desktop grande, sem media query específica) */
+/* Definem as larguras das colunas para o layout base (maior resolução). */
+/* -------------------------------------------------------------------------- */
+.row > .col-1 { width: 8.33333%; } /*  */ /* 1/12 da largura. */
+.row > .off-1 { margin-left: 8.33333%; } /*  */ /* Offset de 1/12 da largura. */
+.row > .col-2 { width: 16.66667%; } /*  */ /* 2/12 da largura. */
+.row > .off-2 { margin-left: 16.66667%; } /*  */ /* Offset de 2/12. */
+.row > .col-3 { width: 25%; } /*  */ /* 3/12 (1/4) da largura. */
+.row > .off-3 { margin-left: 25%; } /*  */ /* Offset de 3/12. */
+.row > .col-4 { width: 33.33333%; } /*  */ /* 4/12 (1/3) da largura. */
+.row > .off-4 { margin-left: 33.33333%; } /*  */ /* Offset de 4/12. */
+.row > .col-5 { width: 41.66667%; } /*  */ /* 5/12 da largura. */
+.row > .off-5 { margin-left: 41.66667%; } /*  */ /* Offset de 5/12. */
+.row > .col-6 { width: 50%; } /*  */ /* 6/12 (1/2) da largura. */
+.row > .off-6 { margin-left: 50%; } /*  */ /* Offset de 6/12. */
+.row > .col-7 { width: 58.33333%; } /*  */ /* 7/12 da largura. */
+.row > .off-7 { margin-left: 58.33333%; } /*  */ /* Offset de 7/12. */
+.row > .col-8 { width: 66.66667%; } /*  */ /* 8/12 (2/3) da largura. */
+.row > .off-8 { margin-left: 66.66667%; } /*  */ /* Offset de 8/12. */
+.row > .col-9 { width: 75%; } /*  */ /* 9/12 (3/4) da largura. */
+.row > .off-9 { margin-left: 75%; } /*  */ /* Offset de 9/12. */
+.row > .col-10 { width: 83.33333%; } /*  */ /* 10/12 da largura. */
+.row > .off-10 { margin-left: 83.33333%; } /*  */ /* Offset de 10/12. */
+.row > .col-11 { width: 91.66667%; } /*  */ /* 11/12 da largura. */
+.row > .off-11 { margin-left: 91.66667%; } /*  */ /* Offset de 11/12. */
+.row > .col-12 { width: 100%; } /*  */ /* 12/12 (largura total). */
+.row > .off-12 { margin-left: 100%; } /*  */ /* Offset de 12/12. */
+
+/* -------------------------------------------------------------------------- */
+/* 8. Media Queries (Responsividade) */
+/* Redefinem os estilos do grid para diferentes tamanhos de tela (breakpoints). */
+/* A ordem é importante: as regras mais específicas (telas menores) vêm depois das maiores. */
+/* -------------------------------------------------------------------------- */
+
+/* Media Query para telas menores ou iguais a 1680px (Desktop Grande) */
+@media screen and (max-width: 1680px) {
+
+    /* Regras Base do .row (repetidas para garantir que estas sejam aplicadas neste breakpoint).
+       Tecnicamente, podem ser redundantes se não houver mudança de valor, mas são comuns em frameworks. */
+    .row { /*  */
+        display: flex; /*  */
+        flex-wrap: wrap; /*  */
+        box-sizing: border-box; /*  */
+        align-items: stretch; /*  */
+    }
+    .row > * { /*  */
+        box-sizing: border-box; /*  */
+    }
+
+    /* Regras de Gutter (espaçamento) específicas para este breakpoint. */
+    /* São as mesmas da seção anterior, mas reaplicadas para garantir o contexto da media query. */
+    .row.gtr-uniform > * > :last-child { margin-bottom: 0; } /*  */
+    .row.aln-left { justify-content: flex-start; } /*  */
+    .row.aln-center { justify-content: center; } /*  */
+    .row.aln-right { justify-content: flex-end; } /*  */
+    .row.aln-top { align-items: flex-start; } /*  */
+    .row.aln-middle { align-items: center; } /*  */
+    .row.aln-bottom { align-items: flex-end; } /*  */
+
+    /* Classes de Ordem (redefinidas para este breakpoint). */
+    .row > .imp-xlarge { /*  */
+        order: -1; /*  */ /* Move para o início neste breakpoint. */
+    }
+
+    /* Classes de Coluna e Offset específicas para 'xlarge' (1680px e abaixo). */
+    .row > .col-1-xlarge { width: 8.33333%; } /*  */
+    .row > .off-1-xlarge { margin-left: 8.33333%; } /*  */
+    .row > .col-2-xlarge { width: 16.66667%; } /*  */
+    .row > .off-2-xlarge { margin-left: 16.66667%; } /*  */
+    .row > .col-3-xlarge { width: 25%; } /*  */
+    .row > .off-3-xlarge { margin-left: 25%; } /*  */
+    .row > .col-4-xlarge { width: 33.33333%; } /*  */
+    .row > .off-4-xlarge { margin-left: 33.33333%; } /*  */
+    .row > .col-5-xlarge { width: 41.66667%; } /*  */
+    .row > .off-5-xlarge { margin-left: 41.66667%; } /*  */
+    .row > .col-6-xlarge { width: 50%; } /*  */
+    .row > .off-6-xlarge { margin-left: 50%; } /*  */
+    .row > .col-7-xlarge { width: 58.33333%; } /*  */
+    .row > .off-7-xlarge { margin-left: 58.33333%; } /*  */
+    .row > .col-8-xlarge { width: 66.66667%; } /*  */
+    .row > .off-8-xlarge { margin-left: 66.66667%; } /*  */
+    .row > .col-9-xlarge { width: 75%; } /*  */
+    .row > .off-9-xlarge { margin-left: 75%; } /*  */
+    .row > .col-10-xlarge { width: 83.33333%; } /*  */
+    .row > .off-10-xlarge { margin-left: 83.33333%; } /*  */
+    .row > .col-11-xlarge { width: 91.66667%; } /*  */
+    .row > .off-11-xlarge { margin-left: 91.66667%; } /*  */
+    .row > .col-12-xlarge { width: 100%; } /*  */
+    .row > .off-12-xlarge { margin-left: 100%; } /*  */
+
+    /* Classes de Gutter específicas para este breakpoint (reajustam o espaçamento). */
+    .row.gtr-0 { margin-top: 0; margin-left: 0em; } /*  */
+    .row.gtr-0 > * { padding: 0 0 0 0em; } /*  */
+    .row.gtr-0.gtr-uniform { margin-top: 0em; } /*  */
+    .row.gtr-0.gtr-uniform > * { padding-top: 0em; } /*  */
+
+    .row.gtr-25 { margin-top: 0; margin-left: -0.5em; } /*  */
+    .row.gtr-25 > * { padding: 0 0 0 0.5em; } /*  */
+    .row.gtr-25.gtr-uniform { margin-top: -0.5em; } /*  */
+    .row.gtr-25.gtr-uniform > * { padding-top: 0.5em; } /*  */
+
+    .row.gtr-50 { margin-top: 0; margin-left: -1em; } /*  */
+    .row.gtr-50 > * { padding: 0 0 0 1em; } /*  */
+    .row.gtr-50.gtr-uniform { margin-top: -1em; } /*  */
+    .row.gtr-50.gtr-uniform > * { padding-top: 1em; } /*  */
+
+    .row { margin-top: 0; margin-left: -2em; } /*  */
+    .row > * { padding: 0 0 0 2em; } /*  */
+    .row.gtr-uniform { margin-top: -2em; } /*  */
+    .row.gtr-uniform > * { padding-top: 2em; } /*  */
+
+    .row.gtr-150 { margin-top: 0; margin-left: -3em; } /*  */
+    .row.gtr-150 > * { padding: 0 0 0 3em; } /*  */
+    .row.gtr-150.gtr-uniform { margin-top: -3em; } /*  */
+    .row.gtr-150.gtr-uniform > * { padding-top: 3em; } /*  */
+
+    .row.gtr-200 { margin-top: 0; margin-left: -4em; } /*  */
+    .row.gtr-200 > * { padding: 0 0 0 4em; } /*  */
+    .row.gtr-200.gtr-uniform { margin-top: -4em; } /*  */
+    .row.gtr-200.gtr-uniform > * { padding-top: 4em; } /*  */
+}
+
+/* Media Query para telas menores ou iguais a 1280px (Desktop Médio) */
+@media screen and (max-width: 1280px) {
+    /* Regras Base do .row (repetidas). */
+    .row { /*  */
+        display: flex; /*  */
+        flex-wrap: wrap; /*  */
+        box-sizing: border-box; /*  */
+        align-items: stretch; /*  */
+    }
+    .row > * { /*  */
+        box-sizing: border-box; /*  */
+    }
+
+    /* Regras de Gutter e Alinhamento (repetidas). */
+    .row.gtr-uniform > * > :last-child { margin-bottom: 0; } /*  */
+    .row.aln-left { justify-content: flex-start; } /*  */
+    .row.aln-center { justify-content: center; } /*  */
+    .row.aln-right { justify-content: flex-end; } /*  */
+    .row.aln-top { align-items: flex-start; } /*  */
+    .row.aln-middle { align-items: center; } /*  */
+    .row.aln-bottom { align-items: flex-end; } /*  */
+
+    /* Classes de Ordem para 'large'. */
+    .row > .imp-large { /*  */
+        order: -1; /*  */
+    }
+
+    /* Classes de Coluna e Offset para 'large' (1280px e abaixo). */
+    .row > .col-1-large { width: 8.33333%; } /*  */
+    .row > .off-1-large { margin-left: 8.33333%; } /*  */
+    .row > .col-2-large { width: 16.66667%; } /*  */
+    .row > .off-2-large { margin-left: 16.66667%; } /*  */
+    .row > .col-3-large { width: 25%; } /*  */
+    .row > .off-3-large { margin-left: 25%; } /*  */
+    .row > .col-4-large { width: 33.33333%; } /*  */
+    .row > .off-4-large { margin-left: 33.33333%; } /*  */
+    .row > .col-5-large { width: 41.66667%; } /*  */
+    .row > .off-5-large { margin-left: 41.66667%; } /*  */
+    .row > .col-6-large { width: 50%; } /*  */
+    .row > .off-6-large { margin-left: 50%; } /*  */
+    .row > .col-7-large { width: 58.33333%; } /*  */
+    .row > .off-7-large { margin-left: 58.33333%; } /*  */
+    .row > .col-8-large { width: 66.66667%; } /*  */
+    .row > .off-8-large { margin-left: 66.66667%; } /*  */
+    .row > .col-9-large { width: 75%; } /*  */
+    .row > .off-9-large { margin-left: 75%; } /*  */
+    .row > .col-10-large { width: 83.33333%; } /*  */
+    .row > .off-10-large { margin-left: 83.33333%; } /*  */
+    .row > .col-11-large { width: 91.66667%; } /*  */
+    .row > .off-11-large { margin-left: 91.66667%; } /*  */
+    .row > .col-12-large { width: 100%; } /*  */
+    .row > .off-12-large { margin-left: 100%; } /*  */
+
+    /* Classes de Gutter para este breakpoint (reajustam o espaçamento). */
+    .row.gtr-0 { margin-top: 0; margin-left: 0em; } /*  */
+    .row.gtr-0 > * { padding: 0 0 0 0em; } /*  */
+    .row.gtr-0.gtr-uniform { margin-top: 0em; } /*  */
+    .row.gtr-0.gtr-uniform > * { padding-top: 0em; } /*  */
+
+    .row.gtr-25 { margin-top: 0; margin-left: -0.375em; } /*  */
+    .row.gtr-25 > * { padding: 0 0 0 0.375em; } /*  */
+    .row.gtr-25.gtr-uniform { margin-top: -0.375em; } /*  */
+    .row.gtr-25.gtr-uniform > * { padding-top: 0.375em; } /*  */
+
+    .row.gtr-50 { margin-top: 0; margin-left: -0.75em; } /*  */
+    .row.gtr-50 > * { padding: 0 0 0 0.75em; } /*  */
+    .row.gtr-50.gtr-uniform { margin-top: -0.75em; } /*  */
+    .row.gtr-50.gtr-uniform > * { padding-top: 0.75em; } /*  */
+
+    .row { margin-top: 0; margin-left: -1.5em; } /*  */
+    .row > * { padding: 0 0 0 1.5em; } /*  */
+    .row.gtr-uniform { margin-top: -1.5em; } /*  */
+    .row.gtr-uniform > * { padding-top: 1.5em; } /*  */
+
+    .row.gtr-150 { margin-top: 0; margin-left: -2.25em; } /*  */
+    .row.gtr-150 > * { padding: 0 0 0 2.25em; } /*  */
+    .row.gtr-150.gtr-uniform { margin-top: -2.25em; } /*  */
+    .row.gtr-150.gtr-uniform > * { padding-top: 2.25em; } /*  */
+
+    .row.gtr-200 { margin-top: 0; margin-left: -3em; } /*  */
+    .row.gtr-200 > * { padding: 0 0 0 3em; } /*  */
+    .row.gtr-200.gtr-uniform { margin-top: -3em; } /*  */
+    .row.gtr-200.gtr-uniform > * { padding-top: 3em; } /*  */
+}
+
+/* Media Query para telas menores ou iguais a 1024px (Tablet / Desktop Pequeno) */
+@media screen and (max-width: 1024px) {
+    /* Regras Base do .row (repetidas). */
+    .row { /*  */
+        display: flex; /*  */
+        flex-wrap: wrap; /*  */
+        box-sizing: border-box; /*  */
+        align-items: stretch; /*  */
+    }
+    .row > * { /*  */
+        box-sizing: border-box; /*  */
+    }
+
+    /* Regras de Gutter e Alinhamento (repetidas). */
+    .row.gtr-uniform > * > :last-child { margin-bottom: 0; } /*  */
+    .row.aln-left { justify-content: flex-start; } /*  */
+    .row.aln-center { justify-content: center; } /*  */
+    .row.aln-right { justify-content: flex-end; } /*  */
+    .row.aln-top { align-items: flex-start; } /*  */
+    .row.aln-middle { align-items: center; } /*  */
+    .row.aln-bottom { align-items: flex-end; } /*  */
+
+    /* Classes de Ordem para 'medium'. */
+    .row > .imp-medium { /*  */
+        order: -1; /*  */
+    }
+
+    /* Classes de Coluna e Offset para 'medium' (1024px e abaixo). */
+    .row > .col-1-medium { width: 8.33333%; } /*  */
+    .row > .off-1-medium { margin-left: 8.33333%; } /*  */
+    .row > .col-2-medium { width: 16.66667%; } /*  */
+    .row > .off-2-medium { margin-left: 16.66667%; } /*  */
+    .row > .col-3-medium { width: 25%; } /*  */
+    .row > .off-3-medium { margin-left: 25%; } /*  */
+    .row > .col-4-medium { width: 33.33333%; } /*  */
+    .row > .off-4-medium { margin-left: 33.33333%; } /*  */
+    .row > .col-5-medium { width: 41.66667%; } /*  */
+    .row > .off-5-medium { margin-left: 41.66667%; } /*  */
+    .row > .col-6-medium { width: 50%; } /*  */
+    .row > .off-6-medium { margin-left: 50%; } /*  */
+    .row > .col-7-medium { width: 58.33333%; } /*  */
+    .row > .off-7-medium { margin-left: 58.33333%; } /*  */
+    .row > .col-8-medium { width: 66.66667%; } /*  */
+    .row > .off-8-medium { margin-left: 66.66667%; } /*  */
+    .row > .col-9-medium { width: 75%; } /*  */
+    .row > .off-9-medium { margin-left: 75%; } /*  */
+    .row > .col-10-medium { width: 83.33333%; } /*  */
+    .row > .off-10-medium { margin-left: 83.33333%; } /*  */
+    .row > .col-11-medium { width: 91.66667%; } /*  */
+    .row > .off-11-medium { margin-left: 91.66667%; } /*  */
+    .row > .col-12-medium { width: 100%; } /*  */
+    .row > .off-12-medium { margin-left: 100%; } /*  */
+
+    /* Classes de Gutter para este breakpoint. */
+    .row.gtr-0 { margin-top: 0; margin-left: 0em; } /*  */
+    .row.gtr-0 > * { padding: 0 0 0 0em; } /*  */
+    .row.gtr-0.gtr-uniform { margin-top: 0em; } /*  */
+    .row.gtr-0.gtr-uniform > * { padding-top: 0em; } /*  */
+
+    .row.gtr-25 { margin-top: 0; margin-left: -0.375em; } /*  */
+    .row.gtr-25 > * { padding: 0 0 0 0.375em; } /*  */
+    .row.gtr-25.gtr-uniform { margin-top: -0.375em; } /*  */
+    .row.gtr-25.gtr-uniform > * { padding-top: 0.375em; } /*  */
+
+    .row.gtr-50 { margin-top: 0; margin-left: -0.75em; } /*  */
+    .row.gtr-50 > * { padding: 0 0 0 0.75em; } /*  */
+    .row.gtr-50.gtr-uniform { margin-top: -0.75em; } /*  */
+    .row.gtr-50.gtr-uniform > * { padding-top: 0.75em; } /*  */
+
+    .row { margin-top: 0; margin-left: -1.5em; } /*  */
+    .row > * { padding: 0 0 0 1.5em; } /*  */
+    .row.gtr-uniform { margin-top: -1.5em; } /*  */
+    .row.gtr-uniform > * { padding-top: 1.5em; } /*  */
+
+    .row.gtr-150 { margin-top: 0; margin-left: -2.25em; } /*  */
+    .row.gtr-150 > * { padding: 0 0 0 2.25em; } /*  */
+    .row.gtr-150.gtr-uniform { margin-top: -2.25em; } /*  */
+    .row.gtr-150.gtr-uniform > * { padding-top: 2.25em; } /*  */
+
+    .row.gtr-200 { margin-top: 0; margin-left: -3em; } /*  */
+    .row.gtr-200 > * { padding: 0 0 0 3em; } /*  */
+    .row.gtr-200.gtr-uniform { margin-top: -3em; } /*  */
+    .row.gtr-200.gtr-uniform > * { padding-top: 3em; } /*  */
+}
+
+/* Media Query para telas menores ou iguais a 736px (Tablet Retrato / Celular Grande) */
+@media screen and (max-width: 736px) {
+    /* Regras Base do .row (repetidas). */
+    .row { /*  */
+        display: flex; /*  */
+        flex-wrap: wrap; /*  */
+        box-sizing: border-box; /*  */
+        align-items: stretch; /*  */
+    }
+    .row > * { /*  */
+        box-sizing: border-box; /*  */
+    }
+
+    /* Regras de Gutter e Alinhamento (repetidas). */
+    .row.gtr-uniform > * > :last-child { margin-bottom: 0; } /*  */
+    .row.aln-left { justify-content: flex-start; } /*  */
+    .row.aln-center { justify-content: center; } /*  */
+    .row.aln-right { justify-content: flex-end; } /*  */
+    .row.aln-top { align-items: flex-start; } /*  */
+    .row.aln-middle { align-items: center; } /*  */
+    .row.aln-bottom { align-items: flex-end; } /*  */
+
+    /* Classes de Ordem para 'small'. */
+    .row > .imp-small { /*  */
+        order: -1; /*  */
+    }
+
+    /* Classes de Coluna e Offset para 'small' (736px e abaixo). */
+    .row > .col-1-small { width: 8.33333%; } /*  */
+    .row > .off-1-small { margin-left: 8.33333%; } /*  */
+    .row > .col-2-small { width: 16.66667%; } /*  */
+    .row > .off-2-small { margin-left: 16.66667%; } /*  */
+    .row > .col-3-small { width: 25%; } /*  */
+    .row > .off-3-small { margin-left: 25%; } /*  */
+    .row > .col-4-small { width: 33.33333%; } /*  */
+    .row > .off-4-small { margin-left: 33.33333%; } /*  */
+    .row > .col-5-small { width: 41.66667%; } /*  */
+    .row > .off-5-small { margin-left: 41.66667%; } /*  */
+    .row > .col-6-small { width: 50%; } /*  */
+    .row > .off-6-small { margin-left: 50%; } /*  */
+    .row > .col-7-small { width: 58.33333%; } /*  */
+    .row > .off-7-small { margin-left: 58.33333%; } /*  */
+    .row > .col-8-small { width: 66.66667%; } /*  */
+    .row > .off-8-small { margin-left: 66.66667%; } /*  */
+    .row > .col-9-small { width: 75%; } /*  */
+    .row > .off-9-small { margin-left: 75%; } /*  */
+    .row > .col-10-small { width: 83.33333%; } /*  */
+    .row > .off-10-small { margin-left: 83.33333%; } /*  */
+    .row > .col-11-small { width: 91.66667%; } /*  */
+    .row > .off-11-small { margin-left: 91.66667%; } /*  */
+    .row > .col-12-small { width: 100%; } /*  */
+    .row > .off-12-small { margin-left: 100%; } /*  */
+
+    /* Classes de Gutter para este breakpoint. */
+    .row.gtr-0 { margin-top: 0; margin-left: 0em; } /*  */
+    .row.gtr-0 > * { padding: 0 0 0 0em; } /*  */
+    .row.gtr-0.gtr-uniform { margin-top: 0em; } /*  */
+    .row.gtr-0.gtr-uniform > * { padding-top: 0em; } /*  */
+
+    .row.gtr-25 { margin-top: 0; margin-left: -0.3125em; } /*  */
+    .row.gtr-25 > * { padding: 0 0 0 0.3125em; } /*  */
+    .row.gtr-25.gtr-uniform { margin-top: -0.3125em; } /*  */
+    .row.gtr-25.gtr-uniform > * { padding-top: 0.3125em; } /*  */
+
+    .row.gtr-50 { margin-top: 0; margin-left: -0.625em; } /*  */
+    .row.gtr-50 > * { padding: 0 0 0 0.625em; } /*  */
+    .row.gtr-50.gtr-uniform { margin-top: -0.625em; } /*  */
+    .row.gtr-50.gtr-uniform > * { padding-top: 0.625em; } /*  */
+
+    .row { margin-top: 0; margin-left: -1.25em; } /*  */
+    .row > * { padding: 0 0 0 1.25em; } /*  */
+    .row.gtr-uniform { margin-top: -1.25em; } /*  */
+    .row.gtr-uniform > * { padding-top: 1.25em; } /*  */
+
+    .row.gtr-150 { margin-top: 0; margin-left: -1.875em; } /*  */
+    .row.gtr-150 > * { padding: 0 0 0 1.875em; } /*  */
+    .row.gtr-150.gtr-uniform { margin-top: -1.875em; } /*  */
+    .row.gtr-150.gtr-uniform > * { padding-top: 1.875em; } /*  */
+
+    .row.gtr-200 { margin-top: 0; margin-left: -2.5em; } /*  */
+    .row.gtr-200 > * { padding: 0 0 0 2.5em; } /*  */
+    .row.gtr-200.gtr-uniform { margin-top: -2.5em; } /*  */
+    .row.gtr-200.gtr-uniform > * { padding-top: 2.5em; } /*  */
+}
+
+/* Media Query para telas menores ou iguais a 480px (Celular Pequeno) */
+@media screen and (max-width: 480px) {
+    /* Regras Base do .row (repetidas). */
+    .row { /*  */
+        display: flex; /*  */
+        flex-wrap: wrap; /*  */
+        box-sizing: border-box; /*  */
+        align-items: stretch; /*  */
+    }
+    .row > * { /*  */
+        box-sizing: border-box; /*  */
+    }
+
+    /* Regras de Gutter e Alinhamento (repetidas). */
+    .row.gtr-uniform > * > :last-child { margin-bottom: 0; } /*  */
+    .row.aln-left { justify-content: flex-start; } /*  */
+    .row.aln-center { justify-content: center; } /*  */
+    .row.aln-right { justify-content: flex-end; } /*  */
+    .row.aln-top { align-items: flex-start; } /*  */
+    .row.aln-middle { align-items: center; } /*  */
+    .row.aln-bottom { align-items: flex-end; } /*  */
+
+    /* Classes de Ordem para 'xsmall'. */
+    .row > .imp-xsmall { /*  */
+        order: -1; /*  */
+    }
+
+    /* Classes de Coluna e Offset para 'xsmall' (480px e abaixo). */
+    .row > .col-1-xsmall { width: 8.33333%; } /*  */
+    .row > .off-1-xsmall { margin-left: 8.33333%; } /*  */
+    .row > .col-2-xsmall { width: 16.66667%; } /*  */
+    .row > .off-2-xsmall { margin-left: 16.66667%; } /*  */
+    .row > .col-3-xsmall { width: 25%; } /*  */
+    .row > .off-3-xsmall { margin-left: 25%; } /*  */
+    .row > .col-4-xsmall { width: 33.33333%; } /*  */
+    .row > .off-4-xsmall { margin-left: 33.33333%; } /*  */
+    .row > .col-5-xsmall { width: 41.66667%; } /*  */
+    .row > .off-5-xsmall { margin-left: 41.66667%; } /*  */
+    .row > .col-6-xsmall { width: 50%; } /*  */
+    .row > .off-6-xsmall { margin-left: 50%; } /*  */
+    .row > .col-7-xsmall { width: 58.33333%; } /*  */
+    .row > .off-7-xsmall { margin-left: 58.33333%; } /*  */
+    .row > .col-8-xsmall { width: 66.66667%; } /*  */
+    .row > .off-8-xsmall { margin-left: 66.66667%; } /*  */
+    .row > .col-9-xsmall { width: 75%; } /*  */
+    .row > .off-9-xsmall { margin-left: 75%; } /*  */
+    .row > .col-10-xsmall { width: 83.33333%; } /*  */
+    .row > .off-10-xsmall { margin-left: 83.33333%; } /*  */
+    .row > .col-11-xsmall { width: 91.66667%; } /*  */
+    .row > .off-11-xsmall { margin-left: 91.66667%; } /*  */
+    .row > .col-12-xsmall { width: 100%; } /*  */
+    .row > .off-12-xsmall { margin-left: 100%; } /*  */
+
+    /* Classes de Gutter para este breakpoint. */
+    .row.gtr-0 { margin-top: 0; margin-left: 0em; } /*  */
+    .row.gtr-0 > * { padding: 0 0 0 0em; } /*  */
+    .row.gtr-0.gtr-uniform { margin-top: 0em; } /*  */
+    .row.gtr-0.gtr-uniform > * { padding-top: 0em; } /*  */
+
+    .row.gtr-25 { margin-top: 0; margin-left: -0.3125em; } /*  */
+    .row.gtr-25 > * { padding: 0 0 0 0.3125em; } /*  */
+    .row.gtr-25.gtr-uniform { margin-top: -0.3125em; } /*  */
+    .row.gtr-25.gtr-uniform > * { padding-top: 0.3125em; } /*  */
+
+    .row.gtr-50 { margin-top: 0; margin-left: -0.625em; } /*  */
+    .row.gtr-50 > * { padding: 0 0 0 0.625em; } /*  */
+    .row.gtr-50.gtr-uniform { margin-top: -0.625em; } /*  */
+    .row.gtr-50.gtr-uniform > * { padding-top: 0.625em; } /*  */
+
+    .row { margin-top: 0; margin-left: -1.25em; } /*  */
+    .row > * { padding: 0 0 0 1.25em; } /*  */
+    .row.gtr-uniform { margin-top: -1.25em; } /*  */
+    .row.gtr-uniform > * { padding-top: 1.25em; } /*  */
+
+    .row.gtr-150 { margin-top: 0; margin-left: -1.875em; } /*  */
+    .row.gtr-150 > * { padding: 0 0 0 1.875em; } /*  */
+    .row.gtr-150.gtr-uniform { margin-top: -1.875em; } /*  */
+    .row.gtr-150.gtr-uniform > * { padding-top: 1.875em; } /*  */
+
+    .row.gtr-200 { margin-top: 0; margin-left: -2.5em; } /*  */
+    .row.gtr-200 > * { padding: 0 0 0 2.5em; } /*  */
+    .row.gtr-200.gtr-uniform { margin-top: -2.5em; } /*  */
+    .row.gtr-200.gtr-uniform > * { padding-top: 2.5em; } /*  */
+}
+
+/*
+ * Contêiner Principal
+ *
+ * Esta seção define a estrutura e o comportamento do contêiner central do seu layout,
+ * garantindo que o conteúdo seja legível e o site responsivo em diferentes tamanhos de tela.
+*/
+
+/* Regra Base do Contêiner */
+.container {
+    margin: 0 auto;
+    max-width: calc(100% - 4.5em);
+    width: 45em;
+}
+
+/* Classes Modificadoras de Largura do Contêiner */
+.container.xsmall {
+    width: 11.25em;
+}
+.container.small {
+    width: 22.5em;
+}
+.container.medium {
+    width: 33.75em;
+}
+.container.large {
+    width: 56.25em;
+}
+.container.xlarge {
+    width: 67.5em;
+}
+.container.max {
+    width: 100%;
+}
+
+/* Media Queries (Responsividade) */
+/* Para telas menores ou iguais a 1024px */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 100% !important;
+    }
+}
+
+/* Para telas menores ou iguais a 480px */
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: calc(100% - 3.375em);
+    }
+}
+
+/*
+ * Estilos para Seções, Artigos e Cabeçalhos (Section/Article & Header)
+ *
+ * Gerencia a apresentação visual de blocos de conteúdo e a tipografia de
+ * títulos e subtítulos, controlando alinhamento, tamanhos e espaçamentos.
+*/
+
+/* Alinhamento de Conteúdo Específico */
+section.special,
+article.special {
+    text-align: center;
+}
+
+/* Estilos Padrão para Subtítulos em Cabeçalhos */
+header p {
+    color: #aaa;
+    position: relative;
+    margin: 0 0 1.6875em 0;
+}
+
+/* Ajustes de Tamanho e Espaçamento para Subtítulos Após Títulos */
+header h2 + p {
+    font-size: 1.25em;
+    margin-top: -0.5em;
+    line-height: 1.5em;
+}
+
+header h3 + p {
+    font-size: 1.1em;
+    margin-top: -0.35em;
+    line-height: 1.5em;
+}
+
+header h4 + p,
+header h5 + p,
+header h6 + p {
+    font-size: 0.9em;
+    margin-top: -0.25em;
+    line-height: 1.5em;
+}
+
+/* Estilos para Cabeçalhos de Grande Destaque ("Major") */
+header.major h2 {
+    color: #4acaa8;
+    font-size: 3.5em;
+}
+
+header.major h2 + p {
+    color: #777;
+    font-size: 1.75em;
+    font-weight: 700;
+    margin-top: -0.75em;
+}
+
+/*
+ * Estilos para Formulários (Form)
+ *
+ * Estiliza todos os elementos de formulário para uma aparência consistente
+ * e uma melhor experiência de usuário, customizando campos de entrada, selects,
+ * textareas, checkboxes e radio buttons, além de placeholders.
+*/
+
+/* Estilo Base do Formulário */
+form {
+    margin: 0 0 2.25em 0;
+}
+
+/* Estilo das Etiquetas (Labels) */
+label {
+    color: #777;
+    display: block;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin: 0 0 1.125em 0;
+}
+
+/* Correção de Foco para Firefox */
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* Estilo Unificado para Campos de Texto, Senha, Email, Selects e Textareas */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+    border: none;
+    border: solid 2px #e4e4e4;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Estilo para Campos com Valor Inválido */
+input[type="text"]:invalid,
+input[type="password"]:invalid,
+input[type="email"]:invalid,
+select:invalid,
+textarea:invalid {
+    box-shadow: none;
+}
+
+/* Estilo de Foco para Campos de Texto, Selects e Textareas */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #4acaa8;
+}
+
+/* Estilo Específico para Selects (Listas Suspensas) */
+select {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23e4e4e4' /%3E%3C/svg%3E");
+    background-size: 1.25em;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1em) center;
+    height: 2.75em;
+    padding-right: 2.75em;
+    text-overflow: ellipsis;
+}
+
+/* Estilo das Opções do Select (Compatibilidade Limitada) */
+select option {
+    color: #777;
+    background: #fff;
+}
+
+/* Hacks e Correções Específicas para Select no IE/Edge */
+select:focus::-ms-value {
+    background-color: transparent;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* Altura Consistente para Campos de Entrada e Ajuste para Textareas */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    height: 2.75em;
+}
+
+textarea {
+    padding: 0.75em 1em;
+}
+
+/* Customização de Checkboxes e Radio Buttons */
+input[type="checkbox"],
+input[type="radio"] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    display: block;
+    float: left;
+    margin-right: -2em;
+    opacity: 0;
+    width: 1em;
+    z-index: -1;
+}
+
+/* Estilo das Labels para Checkboxes e Radio Buttons Customizados */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    text-decoration: none;
+    color: #888;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 400;
+    padding-left: 2.4em;
+    padding-right: 0.75em;
+    position: relative;
+}
+
+/* Configuração de Fonte para Ícones de Checkbox/Radio */
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Estilo Visual dos Checkbox/Radio Buttons Customizados (Vazio) */
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+    background: #fafafa;
+    border-radius: 5px;
+    border: solid 2px #e4e4e4;
+    content: '';
+    display: inline-block;
+    font-size: 0.8em;
+    height: 2.0625em;
+    left: 0;
+    line-height: 2.0625em;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 2.0625em;
+}
+
+/* Estilo Quando Checkbox/Radio Está Selecionado (Checked) */
+input[type="checkbox"]:checked + label:before,
+input[type="radio"]:checked + label:before {
+    background: #989898;
+    border-color: #989898;
+    color: #ffffff;
+    content: '\f00c';
+}
+
+/* Estilo de Foco para Checkbox/Radio Customizado */
+input[type="checkbox"]:focus + label:before,
+input[type="radio"]:focus + label:before {
+    border-color: #4acaa8;
+}
+
+/* Formato Específico para Checkbox e Radio Buttons */
+input[type="checkbox"] + label:before {
+    border-radius: 5px;
+}
+
+input[type="radio"] + label:before {
+    border-radius: 100%;
+}
+
+/* Estilo do Placeholder do Input */
+::-webkit-input-placeholder {
+    color: #aaa !important;
+    font-style: italic;
+    opacity: 1.0;
+}
+
+:-moz-placeholder {
+    color: #aaa !important;
+    font-style: italic;
+    opacity: 1.0;
+}
+
+::-moz-placeholder {
+    color: #aaa !important;
+    font-style: italic;
+    opacity: 1.0;
+}
+
+:-ms-input-placeholder {
+    color: #aaa !important;
+    font-style: italic;
+    opacity: 1.0;
+}
+
+/* Box */
+/* Estilo padrão para caixas de conteúdo com bordas e espaçamento. */
+.box {
+    border-radius: 5px;
+    border: solid 2px #e4e4e4;
+    margin-bottom: 2.25em;
+    padding: 1.5em;
+}
+
+/* Remove margem inferior de últimos elementos dentro de uma caixa para evitar espaço extra. */
+.box > :last-child,
+.box > :last-child > :last-child,
+.box > :last-child > :last-child > :last-child {
+    margin-bottom: 0;
+}
+
+/* Estilo alternativo para caixas, removendo bordas e padding, útil para agrupamentos visuais sem contorno. */
+.box.alt {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* Icon */
+/* Estilo base para elementos de ícone, removendo sublinhado padrão de links. */
+.icon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+}
+
+/* Configura o pseudo-elemento ':before' para renderizar ícones de fonte (Font Awesome). */
+.icon:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+
+/* Esconde o texto de rótulo (label) associado ao ícone, que é apenas para leitores de tela. */
+.icon > .label {
+    display: none;
+}
+
+/* Garante que a altura da linha do ícone herde a do elemento pai. */
+.icon:before {
+    line-height: inherit;
+}
+
+/* Altera o peso da fonte para ícones "solid" do Font Awesome. */
+.icon.solid:before {
+    font-weight: 900;
+}
+
+/* Altera a família da fonte para ícones "brands" do Font Awesome. */
+.icon.brands:before {
+    font-family: 'Font Awesome 5 Brands';
+}
+
+/* Image */
+/* Estilo base para contêineres de imagem, aplicando bordas e posicionamento. */
+.image {
+    border-radius: 5px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+}
+
+/* Define como a imagem preenche o contêiner e a posiciona absolutamente. */
+.image[data-position] img {
+    -moz-object-fit: cover;
+    -webkit-object-fit: cover;
+    -ms-object-fit: cover;
+    object-fit: cover; /* Faz a imagem preencher o contêiner mantendo a proporção, cortando o excesso. */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Posicionamento do conteúdo da imagem dentro do contêiner, com base no atributo 'data-position'. */
+.image[data-position="top left"] img { -moz-object-position: top left; -webkit-object-position: top left; -ms-object-position: top left; object-position: top left; }
+.image[data-position="top"] img { -moz-object-position: top; -webkit-object-position: top; -ms-object-position: top; object-position: top; }
+.image[data-position="top right"] img { -moz-object-position: top right; -webkit-object-position: top right; -ms-object-position: top right; object-position: top right; }
+.image[data-position="right"] img { -moz-object-position: right; -webkit-object-position: right; -ms-object-position: right; object-position: right; }
+.image[data-position="bottom right"] img { -moz-object-position: bottom right; -webkit-object-position: bottom right; -ms-object-position: bottom right; object-position: bottom right; }
+.image[data-position="bottom"] img { -moz-object-position: bottom; -webkit-object-position: bottom; -ms-object-position: bottom; object-position: bottom; }
+.image[data-position="bottom left"] img { -moz-object-position: bottom left; -webkit-object-position: bottom left; -ms-object-position: bottom left; object-position: bottom left; }
+.image[data-position="left"] img { -moz-object-position: left; -webkit-object-position: left; -ms-object-position: left; object-position: left; }
+.image[data-position="center"] img { -moz-object-position: center; -webkit-object-position: center; -ms-object-position: center; object-position: center; }
+.image[data-position="25% 25%"] img { -moz-object-position: 25% 25%; -webkit-object-position: 25% 25%; -ms-object-position: 25% 25%; object-position: 25% 25%; }
+.image[data-position="75% 25%"] img { -moz-object-position: 75% 25%; -webkit-object-position: 75% 25%; -ms-object-position: 75% 25%; object-position: 75% 25%; }
+.image[data-position="75% 75%"] img { -moz-object-position: 75% 75%; -webkit-object-position: 75% 75%; -ms-object-position: 75% 75%; object-position: 75% 75%; }
+.image[data-position="25% 75%"] img { -moz-object-position: 25% 75%; -webkit-object-position: 25% 75%; -ms-object-position: 25% 75%; object-position: 25% 75%; }
+
+/* Estilo padrão para a imagem real dentro do contêiner. */
+.image img {
+    border-radius: 5px;
+    display: block;
+}
+
+/* Alinha a imagem à esquerda, com margem e leve ajuste de posição. */
+.image.left {
+    float: left;
+    margin: 0 2.5em 2em 0;
+    top: 0.25em;
+}
+
+/* Alinha a imagem à direita, com margem e leve ajuste de posição. */
+.image.right {
+    float: right;
+    margin: 0 0 2em 2.5em;
+    top: 0.25em;
+}
+
+/* Faz a imagem ocupar 100% da largura do seu contêiner, com margem inferior. */
+.image.fit {
+    display: block;
+    margin: 0 0 2.25em 0;
+    width: 100%;
+}
+
+/* Garante que a imagem dentro de '.image.fit' também ocupe 100% da largura. */
+.image.fit img {
+    display: block;
+    width: 100%;
+}
+
+/* Cria um efeito de imagem de avatar circular, escondendo o excesso. */
+.image.avatar {
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+/* Garante que a imagem dentro do avatar também seja circular e ocupe 100%. */
+.image.avatar img {
+    border-radius: 100%;
+    display: block;
+    width: 100%;
+}
+
+/* Define um estilo para imagens principais, com altura fixa e sem arredondamento. */
+.image.main {
+    display: block;
+    height: 20em;
+    border-radius: 0;
+}
+
+/* Garante que a imagem principal não tenha bordas arredondadas. */
+.image.main img {
+    border-radius: 0;
+}
+
+/* List */
+/* Estilo para listas ordenadas (numeradas). */
+ol {
+    list-style: decimal;
+    margin: 0 0 2.25em 0;
+    padding-left: 1.25em;
+}
+
+/* Espaçamento interno para itens de listas ordenadas. */
+ol li {
+    padding-left: 0.25em;
+}
+
+/* Estilo para listas não ordenadas (com marcadores). */
+ul {
+    list-style: disc;
+    margin: 0 0 2.25em 0;
+    padding-left: 1em;
+}
+
+/* Espaçamento interno para itens de listas não ordenadas. */
+ul li {
+    padding-left: 0.5em;
+}
+
+/* Estilo alternativo para listas não ordenadas, sem marcadores e com divisores. */
+ul.alt {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Adiciona uma borda superior e padding para itens de listas alternativas. */
+ul.alt li {
+    border-top: solid 2px #f4f4f4;
+    padding: 0.5em 0;
+}
+
+/* Remove a borda superior e padding do primeiro item em listas alternativas. */
+ul.alt li:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+/* Estilo para listas de definição. */
+dl {
+    margin: 0 0 2.25em 0;
+}
+
+/* Actions */
+
+/* Estilo base para listas de ações (botões), usando flexbox para alinhamento horizontal. */
+ul.actions {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    cursor: default;
+    list-style: none;
+    margin-left: -1.125em;
+    padding-left: 0;
+}
+
+/* Espaçamento e alinhamento vertical para itens de listas de ações. */
+ul.actions li {
+    padding: 0 0 0 1.125em;
+    vertical-align: middle;
+}
+
+/* Centraliza os itens em listas de ações especiais. */
+ul.actions.special {
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+}
+
+/* Remove padding esquerdo do primeiro item em listas de ações especiais. */
+ul.actions.special li:first-child {
+    padding-left: 0;
+}
+
+/* Organiza os itens em listas de ações em uma coluna vertical. */
+ul.actions.stacked {
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-left: 0;
+}
+
+/* Espaçamento para itens em listas de ações empilhadas. */
+ul.actions.stacked li {
+    padding: 1.125em 0 0 0;
+}
+
+/* Remove padding superior do primeiro item em listas de ações empilhadas. */
+ul.actions.stacked li:first-child {
+    padding-top: 0;
+}
+
+/* Ajusta a largura da lista de ações para preencher o espaço disponível. */
+ul.actions.fit {
+    width: calc(100% + 1.125em);
+}
+
+/* Faz os itens da lista de ações se expandirem para preencher o espaço. */
+ul.actions.fit li {
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+    -moz-flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-shrink: 1;
+    flex-shrink: 1;
+    width: 100%;
+}
+
+/* Garante que o conteúdo dentro dos itens de ação "fit" ocupe a largura total. */
+ul.actions.fit li > * {
+    width: 100%;
+}
+
+/* Ajusta a largura de listas de ações "fit" empilhadas para 100%. */
+ul.actions.fit.stacked {
+    width: 100%;
+}
+
+/* Media Query para telas menores ou iguais a 480px (Celulares) */
+@media screen and (max-width: 480px) {
+
+    /* Transforma listas de ações não fixas em colunas e as faz ocupar 100% da largura. */
+    ul.actions:not(.fixed) {
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-left: 0;
+        width: 100% !important;
+    }
+
+    /* Ajusta o espaçamento e alinhamento de itens de ação em telas pequenas. */
+    ul.actions:not(.fixed) li {
+        -moz-flex-grow: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-grow: 1;
+        flex-grow: 1;
+        -moz-flex-shrink: 1;
+        -webkit-flex-shrink: 1;
+        -ms-flex-shrink: 1;
+        flex-shrink: 1;
+        padding: 1.125em 0 0 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Garante que o conteúdo dos itens de ação ocupe 100% da largura em telas pequenas. */
+    ul.actions:not(.fixed) li > * {
+        width: 100%;
+    }
+
+    /* Remove padding superior do primeiro item de ação em telas pequenas. */
+    ul.actions:not(.fixed) li:first-child {
+        padding-top: 0;
+    }
+
+    /* Faz botões dentro de listas de ações ocuparem 100% da largura em telas pequenas. */
+    ul.actions:not(.fixed) li input[type="submit"],
+    ul.actions:not(.fixed) li input[type="reset"],
+    ul.actions:not(.fixed) li input[type="button"],
+    ul.actions:not(.fixed) li button,
+    ul.actions:not(.fixed) li .button {
+        width: 100%;
+    }
+
+    /* Ajusta a margem para ícones em botões em telas pequenas. */
+    ul.actions:not(.fixed) li input[type="submit"].icon:before,
+    ul.actions:not(.fixed) li input[type="reset"].icon:before,
+    ul.actions:not(.fixed) li input[type="button"].icon:before,
+    ul.actions:not(.fixed) li button.icon:before,
+    ul.actions:not(.fixed) li .button.icon:before {
+        margin-left: -0.5rem;
+    }
+}
+
+/* Feature Icons */
+
+/* Estilo base para uma lista de ícones de características, sem marcadores. */
+ul.feature-icons {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Estilo para cada item de ícone de característica, com posicionamento relativo para o ícone. */
+ul.feature-icons li {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 0 1.6875em 0;
+    padding: 0.35em 0 0 3.5em;
+    position: relative;
+    vertical-align: top;
+    width: 48%; /* Exibe dois ícones por linha em telas maiores. */
+}
+
+/* Configura o pseudo-elemento ':before' para exibir ícones Font Awesome para características. */
+ul.feature-icons li:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+
+/* Estilo visual para o ícone de característica (círculo com cor de fundo e cor branca para o ícone). */
+ul.feature-icons li:before {
+    background: #4acaa8;
+    border-radius: 100%;
+    color: #ffffff;
+    display: block;
+    height: 2.5em;
+    left: 0;
+    line-height: 2.5em;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 2.5em;
+}
+
+/* Icons */
+
+/* Estilo base para listas de ícones sociais ou de navegação, sem marcadores. */
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Espaçamento horizontal entre os ícones. */
+ul.icons li {
+    display: inline-block;
+    padding: 0 1em 0 0;
+}
+
+/* Remove o padding direito do último ícone para alinhamento correto. */
+ul.icons li:last-child {
+    padding-right: 0 !important;
+}
+
+/* Aumenta o tamanho da fonte dos ícones. */
+ul.icons li .icon:before {
+    font-size: 1.25em;
+}
+
+
+/*
+ * Estilos para Tabelas (Table)
+ *
+ * Esta seção define a apresentação de tabelas, incluindo estilos para bordas,
+ * espaçamento, cabeçalhos, rodapés e uma versão alternativa com células bordadas.
+*/
+
+/* Contêiner da Tabela */
+
+/* Permite que a tabela role horizontalmente em telas menores, melhorando a responsividade. */
+.table-wrapper {
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em dispositivos iOS. */
+    overflow-x: auto;
+}
+
+/* Estilo Base da Tabela */
+table {
+    margin: 0 0 2.25em 0; /* Margem inferior para espaçamento. */
+    width: 100%; /* Faz a tabela ocupar a largura total do contêiner. */
+}
+
+/* Estilo para Linhas do Corpo da Tabela */
+table tbody tr {
+    border: solid 2px #f4f4f4; /* Bordas horizontais para as linhas. */
+    border-left: 0; /* Remove borda esquerda. */
+    border-right: 0; /* Remove borda direita. */
+}
+
+/* Aplica cor de fundo diferente para linhas ímpares (efeito zebrado). */
+table tbody tr:nth-child(2n + 1) {
+    background-color: #fafafa;
+}
+
+/* Estilo para Células de Dados da Tabela */
+table td {
+    padding: 0.75em 0.75em; /* Espaçamento interno das células. */
+}
+
+/* Estilo para Células de Cabeçalho da Tabela */
+table th {
+    color: #777; /* Cor do texto. */
+    font-size: 0.9em; /* Tamanho da fonte. */
+    font-weight: 700; /* Negrito. */
+    padding: 0 0.75em 0.75em 0.75em; /* Espaçamento interno. */
+    text-align: left; /* Alinhamento do texto à esquerda. */
+}
+
+/* Estilo para o Cabeçalho da Tabela */
+table thead {
+    border-bottom: solid 4px #e4e4e4; /* Borda inferior mais espessa para separar o cabeçalho. */
+}
+
+/* Estilo para o Rodapé da Tabela */
+table tfoot {
+    border-top: solid 4px #e4e4e4; /* Borda superior mais espessa para separar o rodapé. */
+}
+
+/* Estilo Alternativo da Tabela */
+
+/* Permite bordas separadas para as células. */
+table.alt {
+    border-collapse: separate;
+}
+
+/* Aplica bordas individuais para as células no corpo da tabela alternativa. */
+table.alt tbody tr td {
+    border: solid 2px #e4e4e4;
+    border-left-width: 0; /* Remove borda esquerda padrão. */
+    border-top-width: 0; /* Remove borda superior padrão. */
+}
+
+/* Adiciona borda esquerda ao primeiro item de cada linha na tabela alternativa. */
+table.alt tbody tr td:first-child {
+    border-left-width: 2px;
+}
+
+/* Adiciona borda superior aos itens da primeira linha da tabela alternativa. */
+table.alt tbody tr:first-child td {
+    border-top-width: 2px;
+}
+
+/* Remove a borda inferior do cabeçalho na tabela alternativa. */
+table.alt thead {
+    border-bottom: 0;
+}
+
+/* Remove a borda superior do rodapé na tabela alternativa. */
+table.alt tfoot {
+    border-top: 0;
+}
+
+
+/*
+ * Estilos para Botões (Button)
+ *
+ * Esta seção define a aparência e o comportamento de botões de formulário
+ * e elementos com a classe `.button`, incluindo estados de hover, active,
+ * variações de tamanho, estilo alternativo e desabilitado.
+ * Os prefixos de navegador e o uso excessivo de !important foram removidos
+ * para um código mais limpo e moderno.
+*/
+
+/* Estilo Base para Botões */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.button {
+    appearance: none; /* Remove estilos padrão do navegador. */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Transições suaves para cor de fundo e texto. */
+    background-color: #989898; /* Cor de fundo padrão. */
+    border-radius: 5px; /* Bordas arredondadas. */
+    border: 0; /* Sem borda. */
+    color: #ffffff; /* Cor do texto. */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse. */
+    display: inline-block; /* Exibição em linha, permitindo largura/altura. */
+    font-weight: 700; /* Negrito. */
+    height: 2.75em; /* Altura fixa. */
+    line-height: 2.75em; /* Centraliza o texto verticalmente. */
+    padding: 0 1.5em; /* Espaçamento interno horizontal. */
+    text-align: center; /* Alinha o texto ao centro. */
+    text-decoration: none; /* Remove sublinhado de links. */
+    white-space: nowrap; /* Impede que o texto quebre linha. */
+}
+
+/* Estilo ao Passar o Mouse (Hover) */
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:hover {
+    background-color: #a5a5a5; /* Muda a cor de fundo. */
+    color: #ffffff;
+}
+
+/* Estilo ao Clicar (Active) */
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active,
+.button:active {
+    background-color: #8b8b8b; /* Muda a cor de fundo para indicar clique. */
+}
+
+/* Estilo para Botões com Ícones */
+input[type="submit"].icon,
+input[type="reset"].icon,
+input[type="button"].icon,
+.button.icon {
+    padding-left: 1.35em; /* Ajusta o padding para acomodar o ícone. */
+}
+
+/* Posicionamento do Ícone dentro do Botão */
+input[type="submit"].icon:before,
+input[type="reset"].icon:before,
+input[type="button"].icon:before,
+.button.icon:before {
+    margin-right: 0.5em; /* Espaçamento entre o ícone e o texto. */
+}
+
+/* Estilo para Botões que Ocupam a Largura Total */
+input[type="submit"].fit,
+input[type="reset"].fit,
+input[type="button"].fit,
+.button.fit {
+    width: 100%; /* Ocupa 100% da largura do contêiner. */
+}
+
+/* Estilo para Botões Pequenos */
+input[type="submit"].small,
+input[type="reset"].small,
+input[type="button"].small,
+.button.small {
+    font-size: 0.8em; /* Diminui o tamanho da fonte. */
+}
+
+/* Estilo para Botões Grandes */
+input[type="submit"].large,
+input[type="reset"].large,
+input[type="button"].large,
+.button.large {
+    font-size: 1.35em; /* Aumenta o tamanho da fonte. */
+}
+
+/* Estilo Alternativo (Outline) para Botões */
+input[type="submit"].alt,
+input[type="reset"].alt,
+input[type="button"].alt,
+.button.alt {
+    background-color: transparent; /* Fundo transparente. */
+    box-shadow: inset 0 0 0 2px #e4e4e4; /* Borda visível. */
+    color: #777; /* Cor do texto. */
+}
+
+/* Estilo Hover para Botões Alternativos */
+input[type="submit"].alt:hover,
+input[type="reset"].alt:hover,
+input[type="button"].alt:hover,
+.button.alt:hover {
+    background-color: #f4f4f4; /* Fundo levemente cinza ao passar o mouse. */
+    color: #777;
+}
+
+/* Estilo Active para Botões Alternativos */
+input[type="submit"].alt:active,
+input[type="reset"].alt:active,
+input[type="button"].alt:active,
+.button.alt:active {
+    background-color: #eaeaea; /* Fundo mais escuro ao clicar. */
+}
+
+/* Cor do Ícone em Botões Alternativos */
+input[type="submit"].alt.icon:before,
+input[type="reset"].alt.icon:before,
+input[type="button"].alt.icon:before,
+.button.alt.icon:before {
+    color: #aaa; /* Cor mais clara para o ícone. */
+}
+
+/* Estilo para Botões Primários (Destaque) */
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+.button.primary {
+    background-color: #4acaa8; /* Cor de destaque (verde/ciano). */
+    color: #ffffff;
+}
+
+/* Estilo Hover para Botões Primários */
+input[type="submit"].primary:hover,
+input[type="reset"].primary:hover,
+input[type="button"].primary:hover,
+.button.primary:hover {
+    background-color: #5ed0b1; /* Tom mais claro ao passar o mouse. */
+}
+
+/* Estilo Active para Botões Primários */
+input[type="submit"].primary:active,
+input[type="reset"].primary:active,
+input[type="button"].primary:active,
+.button.primary:active {
+    background-color: #39c29d; /* Tom mais escuro ao clicar. */
+}
+
+/* Estilo para Botões Desabilitados */
+input[type="submit"].disabled, input[type="submit"]:disabled,
+input[type="reset"].disabled,
+input[type="reset"]:disabled,
+input[type="button"].disabled,
+input[type="button"]:disabled,
+.button.disabled,
+.button:disabled {
+    background-color: #888; /* Cor de fundo cinza. */
+    box-shadow: inset 0 -0.15em 0 0 rgba(0, 0, 0, 0.15); /* Sombra interna. */
+    color: #fff; /* Cor do texto branca. */
+    cursor: default; /* Cursor padrão. */
+    opacity: 0.25; /* Transparência para indicar inatividade. */
+}
+
+/*
+ * Estilos para Seções de Recursos (Features)
+ *
+ * Esta seção define o layout e a apresentação de blocos de conteúdo de recursos,
+ * tipicamente exibindo uma imagem e texto lado a lado, com espaçamento e bordas.
+*/
+
+/* Estilo para Artigos de Recursos Individuais */
+.features article {
+    border-top: solid 3px #f4f4f4; /* Adiciona uma borda superior para separar os artigos. */
+    margin-bottom: 2.25em; /* Espaçamento abaixo de cada artigo. */
+    padding-top: 2.25em; /* Espaçamento acima do conteúdo dentro do artigo. */
+}
+
+/* Remove a borda superior e o padding do primeiro artigo na lista. */
+.features article:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+/* Estilo para a Imagem dentro de um Artigo de Recurso */
+.features article .image {
+    display: inline-block; /* Permite que a imagem e o texto fiquem lado a lado. */
+    padding-right: 2.5em; /* Espaçamento à direita da imagem. */
+    vertical-align: middle; /* Alinha a imagem verticalmente ao centro com o conteúdo. */
+    width: 48%; /* Define a largura da imagem. */
+}
+
+/* Garante que a imagem preencha a largura de seu contêiner. */
+.features article .image img {
+    display: block;
+    width: 100%;
+}
+
+/* Estilo para o Contêiner de Conteúdo de Texto dentro de um Artigo de Recurso */
+.features article .inner {
+    display: inline-block; /* Permite que o conteúdo e a imagem fiquem lado a lado. */
+    vertical-align: middle; /* Alinha o conteúdo verticalmente ao centro com a imagem. */
+    width: 50%; /* Define a largura do contêiner de texto. */
+}
+
+/* Remove a margem inferior do último elemento dentro do contêiner de conteúdo. */
+.features article .inner > :last-child {
+    margin-bottom: 0;
+}
+
+/*
+ * Estilos para o Cabeçalho (Header)
+ *
+ * Esta seção define o layout e a aparência do cabeçalho da página,
+ * que é fixo na lateral direita. Inclui estilos para navegação,
+ * informações do usuário (avatar/título) e links, com cores e transições.
+ * Os prefixos de navegador e o uso excessivo de !important foram removidos.
+*/
+
+/* Estilo Base do Cabeçalho */
+#header {
+    display: flex; /* Habilita o layout flexbox. */
+    flex-direction: column; /* Organiza os itens em coluna. */
+    justify-content: space-between; /* Distribui o espaço entre os itens. */
+    background: #4acaa8; /* Cor de fundo do cabeçalho. */
+    color: #d2f2e9; /* Cor do texto padrão. */
+    height: 100%; /* Ocupa 100% da altura da viewport. */
+    overflow-y: auto; /* Adiciona scroll vertical se o conteúdo for muito longo. */
+    position: fixed; /* Fixa o cabeçalho na tela. */
+    text-align: center; /* Alinha o texto ao centro. */
+    top: 0; /* Alinha ao topo. */
+    width: 23em; /* Largura fixa do cabeçalho. */
+    right: 0; /* Fixa no lado direito da tela. */
+}
+
+/* Cor dos Títulos dentro do Cabeçalho */
+#header h1, #header h2, #header h3, #header h4, #header h5, #header h6 {
+    color: #ffffff;
+}
+
+/* Cor dos Links dentro dos Títulos do Cabeçalho */
+#header h1 a, #header h2 a, #header h3 a, #header h4 a, #header h5 a, #header h6 a {
+    color: #ffffff;
+}
+
+/* Cor dos Parágrafos dentro do Cabeçalho Principal */
+#header header p {
+    color: #b7eadc;
+}
+
+/* Cor Padrão dos Links dentro do Cabeçalho */
+#header a {
+    color: #d2f2e9;
+}
+
+/* Cor dos Links ao Passar o Mouse (Hover) */
+#header a:hover {
+    color: #ffffff;
+}
+
+/* Seção do Cabeçalho Principal (topo) */
+#header > header {
+    flex-shrink: 0; /* Impede que o cabeçalho principal encolha. */
+    padding: 3em; /* Espaçamento interno. */
+}
+
+/* Estilo para o Avatar dentro do Cabeçalho Principal */
+#header > header .avatar {
+    display: block; /* Ocupa a largura total e permite centralização. */
+    margin: 0 auto 2.25em auto; /* Centraliza horizontalmente e adiciona margem inferior. */
+    width: 8em; /* Largura do avatar. */
+}
+
+/* Estilo para o Título (H1) dentro do Cabeçalho Principal */
+#header > header h1 {
+    font-size: 1.75em; /* Tamanho da fonte. */
+    margin: 0; /* Remove margens padrão. */
+}
+
+/* Estilo para o Parágrafo (subtítulo) dentro do Cabeçalho Principal */
+#header > header p {
+    color: #d2f2e9; /* Cor do texto. */
+    font-style: italic; /* Estilo itálico. */
+    margin: 1em 0 0 0; /* Margem superior para separação. */
+}
+
+/* Seção do Rodapé do Cabeçalho */
+#header > footer {
+    flex-shrink: 0; /* Impede que o rodapé encolha. */
+    bottom: 0; /* Alinha ao fundo do cabeçalho. */
+    left: 0; /* Alinha à esquerda do cabeçalho. */
+    padding: 2em; /* Espaçamento interno. */
+    width: 100%; /* Ocupa a largura total do cabeçalho. */
+}
+
+/* Ajuste de Margem para Ícones no Rodapé */
+#header > footer .icons {
+    margin: 0;
+}
+
+/* Cor dos Links de Ícones no Rodapé */
+#header > footer .icons li a {
+    color: #b7eadc;
+}
+
+/* Seção de Navegação Principal */
+#header > nav {
+    flex-grow: 1; /* Permite que a navegação ocupe o espaço restante disponível. */
+}
+
+/* Estilo Base para Listas de Navegação */
+#header > nav ul {
+    list-style: none; /* Remove marcadores de lista. */
+    margin: 0; /* Remove margens padrão. */
+    padding: 0; /* Remove preenchimento padrão. */
+}
+
+/* Estilo para Itens da Lista de Navegação */
+#header > nav ul li {
+    border-top: solid 2px #5ccfb1; /* Adiciona uma borda superior para separar os itens. */
+    display: block; /* Ocupa a largura total. */
+    padding: 0;
+}
+
+/* Estilo para Links de Navegação */
+#header > nav ul li a {
+    transition: none; /* Desativa transições para links de navegação. */
+    border: 0; /* Remove bordas. */
+    color: #ffffff; /* Cor do texto do link. */
+    display: block; /* Ocupa a largura total do item de lista. */
+    padding: 0.85em 0; /* Espaçamento interno vertical. */
+    text-decoration: none; /* Remove sublinhado. */
+}
+
+/* Estilo para o Link de Navegação Ativo */
+#header > nav ul li a.active {
+    background: #fff; /* Fundo branco para o item ativo. */
+    color: #4acaa8; /* Cor do texto verde/ciano para o item ativo. */
+}
+
+/* Remove a borda superior do primeiro item de navegação. */
+#header > nav ul li:first-child {
+    border-top: 0;
+}
+
+/*
+ * Estilos Gerais e Responsivos para Layout
+ *
+ * Esta seção define o layout principal do site, incluindo wrapper,
+ * seções de conteúdo e rodapé, e adapta esses elementos para
+ * diferentes tamanhos de tela usando media queries.
+*/
+
+/* Wrapper: Contêiner principal do conteúdo */
+#wrapper {
+    background: #fff;
+    padding-right: 23em; /* Espaçamento para o cabeçalho fixo */
+}
+
+/* Main: Estilos para as seções de conteúdo principal */
+#main > section {
+    border-top: solid 6px #f4f4f4; /* Borda superior entre seções */
+}
+
+    #main > section > .container {
+        padding: 6em 0 4em 0; /* Padding interno do container em seções */
+    }
+
+    #main > section:first-child {
+        border-top: 0; /* Remove a borda superior da primeira seção */
+    }
+
+/* Footer: Estilos para o rodapé */
+#footer {
+    background: #fafafa;
+    border-top: 0;
+    color: #c0c0c0;
+    overflow: hidden; /* Limpa floats */
+    padding: 4em 0 2em 0;
+}
+
+    #footer .copyright {
+        line-height: 1em;
+        list-style: none;
+        padding: 0;
+    }
+
+        #footer .copyright li {
+            border-left: solid 1px #d4d4d4;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-left: 1em;
+            padding-left: 1em;
+        }
+
+            #footer .copyright li:first-child {
+                border-left: 0; /* Remove borda do primeiro item da lista */
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            #footer .copyright li a {
+                color: inherit; /* Herda a cor do pai */
+            }
+
+/* Estilos Responsivos */
+
+/* XLarge: Telas até 1680px de largura */
+@media screen and (max-width: 1680px) {
+
+    /* Basic: Ajustes de fonte */
+    body, input, select, textarea {
+        font-size: 13pt;
+    }
+
+    /* Header: Ajustes de largura e padding */
+    #header {
+        width: 21em;
+    }
+
+        #header > header {
+            padding: 2em;
+        }
+
+        #header > footer {
+            padding: 1.5em;
+        }
+
+    /* Wrapper: Ajuste de padding para compensar o header */
+    #wrapper {
+        padding-right: 21em;
+    }
+
+    /* Main: Ajuste de padding das seções */
+    #main > section > .container {
+        padding: 4em 0 2em 0;
+    }
+
+}
+
+/* Large: Telas até 1280px de largura */
+@media screen and (max-width: 1280px) {
+
+    /* Basic: Ajustes de fonte */
+    body, input, select, textarea {
+        font-size: 11pt;
+    }
+
+    /* Header: Ajustes de largura */
+    #header {
+        width: 20em;
+    }
+
+    /* Wrapper: Ajuste de padding para compensar o header */
+    #wrapper {
+        padding-right: 20em;
+    }
+
+}
+
+/* Medium: Estilos para telas menores, incluindo um cabeçalho móvel */
+/* #titleBar é ocultado por padrão e exibido nesta breakpoint */
+#titleBar {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+    /* Basic: Ajustes globais */
+    html, body {
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+
+    body, input, select, textarea {
+        font-size: 12pt;
+    }
+
+    /* Image: Ajustes para imagens flutuantes */
+    .image.left, .image.right {
+        max-width: 40%;
+    }
+
+        .image.left img, .image.right img {
+            width: 100%;
+        }
+
+    .image.main {
+        height: 20em;
+    }
+
+    /* Header: Se torna um menu lateral deslizante */
+    #header {
+        backface-visibility: hidden; /* Removidos prefixos de vendedor */
+        transition: transform 0.5s ease; /* Removidos prefixos de vendedor */
+        display: block; /* Mudar de flex para block */
+        height: 100%;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        width: 23em;
+        z-index: 10002;
+        transform: translateX(23em); /* Esconde o header fora da tela */
+        right: 0;
+    }
+
+        #header > footer {
+            bottom: auto; /* Reset de posicionamento */
+            left: auto;
+            margin: 0.5em 0 0 0;
+            position: relative; /* Ajusta o contexto de posicionamento */
+            right: auto;
+            top: auto;
+        }
+
+    /* Wrapper: Ajusta padding e transição para o efeito de slide */
+    #wrapper {
+        backface-visibility: hidden; /* Removidos prefixos de vendedor */
+        transition: transform 0.5s ease; /* Removidos prefixos de vendedor */
+        padding: 44px 0 1px 0; /* Ajuste de padding superior para #titleBar */
+    }
+
+    /* Header Panel: Oculto por padrão, visível aqui para telas menores */
+    #titleBar {
+        backface-visibility: hidden; /* Removidos prefixos de vendedor */
+        transition: transform 0.5s ease; /* Removidos prefixos de vendedor */
+        display: block;
+        height: 44px;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10001;
+        background: #222;
+        color: #fff;
+        min-width: 320px;
+    }
+
+        #titleBar .title {
+            color: #fff;
+            display: block;
+            font-weight: 700;
+            height: 44px;
+            line-height: 44px;
+            padding: 0 1em;
+            width: 100%;
+            text-align: left;
+        }
+
+            #titleBar .title a {
+                border: 0;
+                text-decoration: none;
+            }
+
+        #titleBar .toggle {
+            text-decoration: none;
+            height: 4em;
+            position: absolute;
+            top: 0;
+            width: 6em;
+            border: 0;
+            outline: 0;
+            right: 0;
+        }
+
+            #titleBar .toggle:before {
+                /* Removidos prefixos de vendedor para font-smoothing */
+                font-smoothing: grayscale; /* Apenas propriedades padrão */
+                -webkit-font-smoothing: antialiased; /* Mantido prefixo por compatibilidade com algumas fontes */
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                text-rendering: auto;
+                line-height: 1;
+                text-transform: none; /* Removido !important, seletor já é específico */
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+            }
+
+            #titleBar .toggle:before {
+                background: #4acaa8;
+                color: #ffffff;
+                content: '\f0c9'; /* Ícone do Font Awesome */
+                display: block;
+                font-size: 18px;
+                height: 44px;
+                line-height: 44px;
+                position: absolute;
+                text-align: center;
+                top: 0;
+                width: 64px;
+                right: 0;
+            }
+
+    /* Efeito de slide para o menu e conteúdo */
+    body.header-visible #wrapper, body.header-visible #titleBar {
+        transform: translateX(-23em); /* Removidos prefixos de vendedor */
+    }
+
+    body.header-visible #header {
+        transform: translateX(0); /* Removidos prefixos de vendedor */
+    }
+
+}
+
+/* Small: Telas até 736px de largura */
+@media screen and (max-width: 736px) {
+
+    /* Basic: Ajustes de fonte e quebras de linha */
+    body, input, select, textarea {
+        font-size: 12pt;
+    }
+
+    h1 br, h2 br, h3 br, h4 br, h5 br, h6 br {
+        display: none; /* Remove quebras de linha em títulos */
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
+    /* Image: Ajustes de margem */
+    .image.left {
+        margin: 0 1.5em 1em 0;
+    }
+
+    .image.right {
+        margin: 0 0 1em 1.5em;
+    }
+
+    .image.main {
+        height: 12em;
+    }
+
+    /* Section/Article: Ajustes em cabeçalhos de seção */
+    header br {
+        display: none;
+    }
+
+    header.major h2 {
+        font-size: 2.5em;
+    }
+
+        header.major h2 + p {
+            font-size: 1.5em;
+        }
+
+    /* Features: Ajusta para exibição em bloco */
+    .features article .image {
+        display: block;
+        margin: 0 0 2.25em 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .features article .inner {
+        display: block;
+        width: 100%;
+    }
+
+    /* Header: Ajustes de largura e translação para tela menor */
+    #header {
+        width: 17em;
+        transform: translateX(17em); /* Removidos prefixos de vendedor */
+        right: 0;
+    }
+
+        #header > header {
+            padding: 2em;
+        }
+
+            #header > header .avatar {
+                margin: 0 auto 1.6875em auto;
+                width: 6em;
+            }
+
+            #header > header h1 {
+                font-size: 1.5em;
+            }
+
+            #header > header p {
+                margin: 1em 0 0 0;
+            }
+
+        #header > footer {
+            padding: 1.5em;
+        }
+
+    /* Main: Ajustes de padding */
+    #main > section > .container {
+        padding: 2em 0 0 0;
+    }
+
+    /* Footer: Ajustes de alinhamento e lista de copyright */
+    #footer {
+        text-align: center;
+    }
+
+        #footer .copyright li {
+            border-left: 0; /* Remove borda lateral */
+            display: block; /* Itens em nova linha */
+            line-height: 1.75em;
+            margin: 0.75em 0 0 0;
+            padding-left: 0;
+        }
+
+            #footer .copyright li:first-child {
+                margin-top: 0;
+            }
+
+    /* Header Panel: Ajustes de tamanho de toggle */
+    #titleBar .toggle {
+        height: 4em;
+        width: 6em;
+    }
+
+        #titleBar .toggle:before {
+            font-size: 14px;
+            width: 44px;
+        }
+
+    /* Efeito de slide: Ajusta translação para nova largura do header */
+    body.header-visible #wrapper, body.header-visible #titleBar {
+        transform: translateX(-17em); /* Removidos prefixos de vendedor */
+    }
+
+}
+
+/* XSmall: Telas até 480px de largura */
+@media screen and (max-width: 480px) {
+
+    /* Basic: Ajustes mínimos e fonte */
+    html, body {
+        min-width: 320px;
+    }
+
+    body, input, select, textarea {
+        font-size: 12pt;
+    }
+
+    /* List: Ajustes para listas de ações (botões) */
+    ul.actions {
+        margin: 0 0 2.25em 0;
+    }
+
+        ul.actions li {
+            display: block;
+            padding: 1.125em 0 0 0;
+            text-align: center;
+            width: 100%;
+        }
+
+            ul.actions li:first-child {
+                padding-top: 0;
+            }
+
+            ul.actions li > * {
+                width: 100%;
+                margin: 0; /* Removido !important, deve funcionar por especificidade */
+            }
+
+                ul.actions li > *.icon:before {
+                    margin-left: -2em;
+                }
+
+        ul.actions.small li {
+            padding: 0.5625em 0 0 0;
+        }
+
+            ul.actions.small li:first-child {
+                padding-top: 0;
+            }
+
+    ul.feature-icons li {
+        display: block;
+        width: 100%;
+    }
+
+    /* Button: Padding removido */
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    .button {
+        padding: 0;
+    }
+
+}
+
+
