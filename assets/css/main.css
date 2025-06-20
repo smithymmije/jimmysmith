@@ -60,6 +60,8 @@ mark {
     color: inherit;
 }
 
+
+
 /* Basic */
 html {
     box-sizing: border-box;
@@ -80,7 +82,7 @@ body {
     }
 
 body, input, select, textarea {
-    color: #888;
+    color: #d4d4d8;
     font-family: 'Inter','Lato', 'Roboto', 'Poppins', sans-serif;
     font-size: 16pt; /* Considere usar 'rem' para maior escalabilidade */
     font-weight: 400;
@@ -97,7 +99,7 @@ a {
 
     a:hover {
         border-bottom-color: transparent;
-        color: #4acaa8 !important;
+        color: #71717a !important;
     }
 
 strong, b {
@@ -114,7 +116,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #777;
+    color: #d4d4d8;
     font-weight: 700;
     line-height: 1em;
     margin: 0 0 0.5625em 0;
@@ -216,11 +218,7 @@ pre {
     text-align: right;
 }
 
-/*Corrigir altura do scroll*/
-/*section {
-	scroll-margin-top: 100px; *//* ou a altura real do seu titleBar */
-  }
-  
+
 
 /*
  * Sistema de Grid (Grade) Responsivo
@@ -231,10 +229,8 @@ pre {
  * e controlando o espaçamento entre os elementos.
 */
 
-/* -------------------------------------------------------------------------- */
 /* 1. Regras Base para a Linha (Contêiner Flexível) */
 /* Define o comportamento fundamental das linhas do seu grid. */
-/* -------------------------------------------------------------------------- */
 .row {
     display: flex;       /* Transforma o .row em um contêiner flexível (Flexbox), permitindo que seus filhos (colunas) se organizem lado a lado. */
     flex-wrap: wrap;     /* Essencial para responsividade: faz com que as colunas que excedem a largura da linha "quebrem" para a próxima linha. */
@@ -950,12 +946,12 @@ header h6 + p {
 
 /* Estilos para Cabeçalhos de Grande Destaque ("Major") */
 header.major h2 {
-    color: #4acaa8;
+    color: #d4d4d8;
     font-size: 3.5em;
 }
 
 header.major h2 + p {
-    color: #777;
+    color: #d4d4d8;
     font-size: 1.75em;
     font-weight: 700;
     margin-top: -0.75em;
@@ -1042,7 +1038,7 @@ select {
 /* Estilo das Opções do Select (Compatibilidade Limitada) */
 select option {
     color: #777;
-    background: #fff;
+    background: #fff; 
 }
 
 /* Hacks e Correções Específicas para Select no IE/Edge */
@@ -1864,7 +1860,7 @@ input[type="button"]:disabled,
 
 /* Estilo para Artigos de Recursos Individuais */
 .features article {
-    border-top: solid 3px #f4f4f4; /* Adiciona uma borda superior para separar os artigos. */
+    border-top: solid 3px #d4d4d8; /* Adiciona uma borda superior para separar os artigos. */
     margin-bottom: 2.25em; /* Espaçamento abaixo de cada artigo. */
     padding-top: 2.25em; /* Espaçamento acima do conteúdo dentro do artigo. */
 }
@@ -1915,7 +1911,7 @@ input[type="button"]:disabled,
     display: flex; /* Habilita o layout flexbox. */
     flex-direction: column; /* Organiza os itens em coluna. */
     justify-content: space-between; /* Distribui o espaço entre os itens. */
-    background: #4acaa8; /* Cor de fundo do cabeçalho. */
+    background: #161618; /* Cor de fundo do cabeçalho. */
     color: #d2f2e9; /* Cor do texto padrão. */
     height: 100%; /* Ocupa 100% da altura da viewport. */
     overflow-y: auto; /* Adiciona scroll vertical se o conteúdo for muito longo. */
@@ -1928,12 +1924,12 @@ input[type="button"]:disabled,
 
 /* Cor dos Títulos dentro do Cabeçalho */
 #header h1, #header h2, #header h3, #header h4, #header h5, #header h6 {
-    color: #ffffff;
+    color: #d4dad8;
 }
 
 /* Cor dos Links dentro dos Títulos do Cabeçalho */
 #header h1 a, #header h2 a, #header h3 a, #header h4 a, #header h5 a, #header h6 a {
-    color: #ffffff;
+    color: #d4d4d8;
 }
 
 /* Cor dos Parágrafos dentro do Cabeçalho Principal */
@@ -1972,7 +1968,7 @@ input[type="button"]:disabled,
 
 /* Estilo para o Parágrafo (subtítulo) dentro do Cabeçalho Principal */
 #header > header p {
-    color: #d2f2e9; /* Cor do texto. */
+    color: #d4d4d8; /* Cor do texto. */
     font-style: italic; /* Estilo itálico. */
     margin: 1em 0 0 0; /* Margem superior para separação. */
 }
@@ -1993,7 +1989,7 @@ input[type="button"]:disabled,
 
 /* Cor dos Links de Ícones no Rodapé */
 #header > footer .icons li a {
-    color: #b7eadc;
+    color: #d4d4d8;
 }
 
 /* Seção de Navegação Principal */
@@ -2010,7 +2006,7 @@ input[type="button"]:disabled,
 
 /* Estilo para Itens da Lista de Navegação */
 #header > nav ul li {
-    border-top: solid 2px #5ccfb1; /* Adiciona uma borda superior para separar os itens. */
+    border-top: solid 2px #d4d4d8; /* Adiciona uma borda superior para separar os itens. */
     display: block; /* Ocupa a largura total. */
     padding: 0;
 }
@@ -2019,7 +2015,7 @@ input[type="button"]:disabled,
 #header > nav ul li a {
     transition: none; /* Desativa transições para links de navegação. */
     border: 0; /* Remove bordas. */
-    color: #ffffff; /* Cor do texto do link. */
+    color: #d4d4d8; /* Cor do texto do link. */
     display: block; /* Ocupa a largura total do item de lista. */
     padding: 0.85em 0; /* Espaçamento interno vertical. */
     text-decoration: none; /* Remove sublinhado. */
@@ -2027,8 +2023,8 @@ input[type="button"]:disabled,
 
 /* Estilo para o Link de Navegação Ativo */
 #header > nav ul li a.active {
-    background: #fff; /* Fundo branco para o item ativo. */
-    color: #4acaa8; /* Cor do texto verde/ciano para o item ativo. */
+    background: #d4d4d8; /* Fundo branco para o item ativo. */
+    color: #0e0e10; /* Cor do texto verde/ciano para o item ativo. */
 }
 
 /* Remove a borda superior do primeiro item de navegação. */
@@ -2046,13 +2042,13 @@ input[type="button"]:disabled,
 
 /* Wrapper: Contêiner principal do conteúdo */
 #wrapper {
-    background: #fff;
+    background: #0e0e10;
     padding-right: 23em; /* Espaçamento para o cabeçalho fixo */
 }
 
 /* Main: Estilos para as seções de conteúdo principal */
 #main > section {
-    border-top: solid 6px #f4f4f4; /* Borda superior entre seções */
+    border-top: solid 6px #161618; /* Borda superior entre seções */
 }
 
     #main > section > .container {
@@ -2065,9 +2061,9 @@ input[type="button"]:disabled,
 
 /* Footer: Estilos para o rodapé */
 #footer {
-    background: #fafafa;
+    background: #121214;
     border-top: 0;
-    color: #c0c0c0;
+    color: #a1a1aa;
     overflow: hidden; /* Limpa floats */
     padding: 4em 0 2em 0;
 }
@@ -2079,7 +2075,7 @@ input[type="button"]:disabled,
     }
 
         #footer .copyright li {
-            border-left: solid 1px #d4d4d4;
+            border-left: solid 1px #a1a1aa;
             display: inline-block;
             font-size: 0.8em;
             margin-left: 1em;
@@ -2223,13 +2219,13 @@ input[type="button"]:disabled,
         top: 0;
         width: 100%;
         z-index: 10001;
-        background: #222;
-        color: #fff;
+        background: #121214;
+        color: #d4d4d8;
         min-width: 320px;
     }
 
         #titleBar .title {
-            color: #fff;
+            color: #d4d4d8;
             display: block;
             font-weight: 700;
             height: 44px;
@@ -2257,7 +2253,7 @@ input[type="button"]:disabled,
 
             #titleBar .toggle:before {
                 /* Removidos prefixos de vendedor para font-smoothing */
-                font-smoothing: grayscale; /* Apenas propriedades padrão */
+                /*font-smoothing: grayscale; *//* Apenas propriedades padrão */
                 -webkit-font-smoothing: antialiased; /* Mantido prefixo por compatibilidade com algumas fontes */
                 display: inline-block;
                 font-style: normal;
@@ -2270,8 +2266,8 @@ input[type="button"]:disabled,
             }
 
             #titleBar .toggle:before {
-                background: #4acaa8;
-                color: #ffffff;
+                background: #161618;
+                color: #d4d4d8;
                 content: '\f0c9'; /* Ícone do Font Awesome */
                 display: block;
                 font-size: 18px;
@@ -2486,4 +2482,62 @@ input[type="button"]:disabled,
 
 }
 
+/* ChatBot ajustado para tons escuros */
+.chat-box {
+    background: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    color: #a1a1aa;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+/* Estilos das mensagens */
+.bot-message, .user-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    max-width: 90%;
+    color: #e4e4e7;
+}
+
+.bot-message {
+    background: #2d2d2d;
+}
+
+.user-message {
+    background: #3f3f46;
+    text-align: right;
+    margin-left: auto;
+}
+
+/* Área de entrada */
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: #2a2a2e;
+    color: #e4e4e7;
+}
+
+.chat-input-area button {
+    background: #d4d4d8;
+    border: none;
+    color: #000;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}

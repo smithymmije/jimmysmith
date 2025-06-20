@@ -19,9 +19,9 @@
                 </header>
                 <nav id="nav">
                     <ul>
-                        <li><a href="#one" class="active">Sobre Mim</a></li>
-                        <li><a href="#two">Minhas Engrenagens</a></li>
-                        <li><a href="#three">Projetos em Campo</a></li>
+                        <li><a href="#one" class="active">Logs do Sistema</a></li>
+                        <li><a href="#two">Funções Ativadas</a></li>
+                        <li><a href="#three">Missões (Quase) Secretas</a></li>
                         <li><a href="#four">Laboratório de Ideias</a></li>
                     </ul>
                 </nav>
@@ -42,7 +42,7 @@
 
                         <section id="one">
                                 <div class="image main" data-position="center">
-                                    <img src="images/banner.jpg" alt="" />
+                                    <img src="images/fundo-tec.jpg" alt="" />
                                 </div>
                                 <div class="container">
                                     <header class="major">
@@ -100,9 +100,9 @@
 
                         <section id="four">
                                 <div class="container">
-                                    <h3>Interface de Comunicação</h3>
+                                    <h3>Laboratório de Ideias</h3>
                                     <p>Se chegou até aqui, é porque algo rodou certo. A interface está ativa — pode mandar o sinal que eu decodifico do outro lado.</p>
-                                    <form method="post" action="#">
+                                    <!--<form method="post" action="#">
                                         <div class="row gtr-uniform">
                                             <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Nome" /></div>
                                             <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
@@ -115,8 +115,18 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </form>
+                                    </form>-->
+                                    <div id="chat-container" class="chat-box">
+                                        <div id="chat-messages" class="chat-messages">
+                                            <div class="bot-message">🤖 Olá! Como posso te ajudar hoje?</div>
+                                        </div>
+                                        <div class="chat-input-area">
+                                            <input type="text" id="user-input" placeholder="Digite sua mensagem..." />
+                                            <button onclick="sendChatMessage()">Enviar</button>
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </section>
 
                     </div>
@@ -134,6 +144,7 @@
 
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script src="assets/js/chatbot.js"></script>
 
 			<script>
 				document.getElementById('year').textContent = new Date().getFullYear();
